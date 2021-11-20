@@ -26,10 +26,30 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular-training-final-assessment');
   });
 
-  it('should render title', () => {
+  it('should render nav links', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular-training-final-assessment app is running!');
+
+    const navLinks = [
+      { routerLink: "register", value: "Register" },
+      { routerLink: "view", value: "View" },
+    ]
+
+    expect(compiled.querySelectorAll('a.nav-link').forEach(element => {
+      const navLink = {
+        routerLink: element.getAttribute('routerLink'),
+        value: element.textContent,
+      }
+      expect(navLinks).toContain(jasmine.objectContaining(navLink))
+    }))
+  });
+
+  it('should render router outlet', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector("router-outlet")).toBeTruthy()
   });
 });
