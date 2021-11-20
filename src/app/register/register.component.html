@@ -5,7 +5,9 @@
             formControlName={{control}}
             class="form-control" id={{control}}
             placeholder={{getLabel(control)}}
-            [ngClass]="{'is-invalid': studentForm.controls[control].invalid}"
+            [ngClass]="{
+                'is-invalid': studentForm.controls[control].invalid
+            }"
             required
         />
         <label for={{control}} class="form-label">{{getLabel(control)}}</label>
