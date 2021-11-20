@@ -7,15 +7,13 @@ import { Student } from 'src/interfaces/student';
 })
 export class ApiService {
 
-  url = "http://localhost:3000/students"
-
   constructor(private httpClient: HttpClient) { }
 
   registerStudent(student: Student) {
-    return this.httpClient.post(this.url, student)
+    return this.httpClient.post<Student>("/students", student)
   }
 
   listStudents() {
-    return this.httpClient.get<Student[]>(this.url)
+    return this.httpClient.get<Student[]>("/students")
   }
 }
