@@ -1,0 +1,20 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Roll No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone No</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students | async">
+            <th scope="row">{{student.rollNo}}</th>
+            <td>{{student.name}}</td>
+            <td>{{student.department}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.phoneNo}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,18 @@
+<form [formGroup]="studentForm" (submit)="onSubmit(studentForm.value)">
+    <div *ngFor="let control of controls">
+        <label for={{control}} class="form-label">{{getLabel(control)}}</label>
+        <input type="text" formControlName={{control}} class="form-control" id={{control}} required>
+        <div *ngIf="studentForm.controls[control].invalid" class="alert alert-danger">
+            <ng-container *ngIf="
+                studentForm.controls[control].errors?.required; 
+                then requiredField; 
+                else invalidInput
+            "></ng-container>
+            <ng-template #requiredField>Required Field</ng-template>
+            <ng-template #invalidInput>Invalid Input</ng-template>
+        </div>
+    </div>
+    <button type="submit" [disabled]="!studentForm.valid" value="Submit" class="btn btn-primary btn-lg">
+        Submit
+    </button>
+</form>
