@@ -17,8 +17,8 @@ export class RegisterComponent implements OnInit {
 
   studentForm = new FormGroup({
     rollNo: new FormControl(null, { validators: [Validators.required, Validators.pattern(/^\d{1,2}$/)] }),
-    name: new FormControl(null, { validators: [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)] }),
-    department: new FormControl(null, { validators: [Validators.required, Validators.pattern(/^[a-zA-Z &-/]*$/)] }),
+    name: new FormControl(null, { validators: [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)] }),
+    department: new FormControl(null, { validators: [Validators.required, Validators.pattern(/^[a-zA-Z &\-/]+$/)] }),
     email: new FormControl(null, { validators: [Validators.required, Validators.email] }),
     phoneNo: new FormControl(null, { validators: [Validators.required, Validators.pattern(/^\(?(\+\d{1,2})?(?:\)? ?|-)?(\d{3})[ -]?(\d{3})[ -]?(\d{4})$/)] }),
   })
