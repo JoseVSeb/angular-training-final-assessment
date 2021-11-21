@@ -10,11 +10,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let student of students | async">
-            <th scope="row">{{student.rollNo}}</th>
-            <td>{{student.name}}</td>
-            <td>{{student.department}}</td>
-            <td>{{student.email}}</td>
-            <td>{{student.phoneNo}}</td>
+            <th class="studentRollNo" scope="row">{{student.rollNo}}</th>
+            <td class="studentName">{{student.name}}</td>
+            <td class="studentDepartment">{{student.department}}</td>
+            <td class="studentEmail">{{student.email}}</td>
+            <td class="studentPhoneNo">{{student.phoneNo}}</td>
         </tr>
     </tbody>
 </table>
