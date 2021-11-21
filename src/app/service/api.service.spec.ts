@@ -47,7 +47,7 @@ describe('ApiService', () => {
       expect(actual).toEqual(expected)
     );
 
-    const req = httpMock.expectOne("/students")
+    const req = httpMock.expectOne("students")
 
     expect(req.request.method).toEqual('GET')
 
@@ -68,7 +68,7 @@ describe('ApiService', () => {
       expect(actual).toEqual(expected)
     );
 
-    const req = httpMock.expectOne("/students")
+    const req = httpMock.expectOne("students")
 
     expect(req.request.method).toEqual('POST')
 

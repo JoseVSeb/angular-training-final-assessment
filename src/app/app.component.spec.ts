@@ -32,6 +32,7 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     const navLinks = [
+      { routerLink: "", value: "Home" },
       { routerLink: "register", value: "Register" },
       { routerLink: "view", value: "View" },
     ]

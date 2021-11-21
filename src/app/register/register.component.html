@@ -10,7 +10,7 @@
     </ngb-toast>
 </div>
 
-<h2>
+<h2 class="mb-3">
     Student Registration
 </h2>
 
@@ -31,7 +31,7 @@
     <div *ngIf="!studentForm.valid" class="validity-text mb-3">
         Please enter valid details!
     </div>
-    <button type="submit" [disabled]="!studentForm.valid || submitting" value="Submit" class="btn btn-primary btn-lg">
+    <button type="submit" [disabled]="!studentForm.valid || submitting" value="Submit" class="btn btn-dark btn-lg">
         <span *ngIf="submitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
         Submit
     </button>

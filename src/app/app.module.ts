@@ -9,12 +9,14 @@ import { RegisterComponent } from './register/register.component';
 import { ViewComponent } from './view/view.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { APIInterceptor } from './interceptors/apiInterceptor';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    ViewComponent
+    ViewComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
