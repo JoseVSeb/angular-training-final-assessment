@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { Student } from 'src/interfaces/student';
 import { ApiService } from '../service/api.service';
 
@@ -126,6 +126,42 @@ describe('RegisterComponent', () => {
     expect(mockApiService.registerStudent).toHaveBeenCalledTimes(1)
 
     expect(mockApiService.registerStudent).toHaveBeenCalledWith(expected)
+
+    fixture.detectChanges()
+
+    expect(component.toastError).toBeFalsy()
+    expect(component.toastHeader).toEqual("Success")
+  })
+
+  it(`should handle error in submitting`, () => {
+    const form = fixture.debugElement.query(By.css('form'))
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    const expected: Student = {
+      rollNo: 4,
+      name: 'qwerty',
+      department: 'asdf',
+      email: 'asdf@asd.com',
+      phoneNo: 9876512340,
+    }
+    Object.entries(expected).forEach(([key, value]) => {
+      component.studentForm.controls[key].setValue(value)
+    })
+
+    expect(component.studentForm.valid).toBeTruthy()
+
+    mockApiService.registerStudent.and.returnValue(throwError(new Error("fake error")))
+
+    form.triggerEventHandler("submit", compiled)
+
+    expect(mockApiService.registerStudent).toHaveBeenCalledTimes(1)
+
+    expect(mockApiService.registerStudent).toHaveBeenCalledWith(expected)
+
+    fixture.detectChanges()
+
+    expect(component.toastError).toBeTruthy()
+    expect(component.toastHeader).toEqual("Error")
   })
 
   it(`should disable submit button if form has invalid data`, () => {
