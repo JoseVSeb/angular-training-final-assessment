@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     return _.startCase(value)
   }
 
-  putToast(message: string, header: string = "", error: boolean = false) {
+  putToast(message: string, header: string, error: boolean = false) {
     this.toastError = error
     this.toastMessage = message
     this.toastHeader = header

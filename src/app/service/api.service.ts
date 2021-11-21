@@ -10,10 +10,10 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   registerStudent(student: Student) {
-    return this.httpClient.post<Student>("/students", student)
+    return this.httpClient.post<Student>("students", student)
   }
 
   listStudents() {
-    return this.httpClient.get<Student[]>("/students")
+    return this.httpClient.get<Student[]>("students")
   }
 }
